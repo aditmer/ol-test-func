@@ -31,6 +31,7 @@ async public static Task Run(Stream myBlob, CloudBlockBlob outputBlob, string na
             var response = httpClient.PostAsync(uri, content).Result;
             var responseBytes = response.Content.ReadAsByteArrayAsync().Result;
 
+
             //write to output thumb
             await outputBlob.UploadFromByteArrayAsync(responseBytes, 0, responseBytes.Length);
             
