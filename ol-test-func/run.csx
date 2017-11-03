@@ -32,7 +32,7 @@ async public static Task Run(Stream myBlob, CloudBlockBlob outputBlob, string na
             var responseBytes = response.Content.ReadAsByteArrayAsync().Result;
 
             //write to output thumb
-            outputBlob.UploadFromByteArray(responseBytes, 0, responseBytes.Length);
+            await outputBlob.UploadFromByteArrayAsync(responseBytes, 0, responseBytes.Length);
             
             MobileServiceClient client = new MobileServiceClient("http://ol-test.azurewebsites.net");
             var results = await client.GetTable<Location>().Where(x => x.Name==name).ToListAsync();
