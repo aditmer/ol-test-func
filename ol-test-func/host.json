@@ -1,0 +1,19 @@
+{
+  "bindings": [
+    {
+      "name": "myBlob",
+      "type": "blobTrigger",
+      "direction": "in",
+      "path": "locationimages/{name}",
+      "connection": "oltestfunc9a2b_STORAGE"
+    },
+    {
+      "type": "blob",
+      "name": "outputBlob",
+      "path": "thumbs/{name}",
+      "connection": "oltestfunc9a2b_STORAGE",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
